@@ -1,0 +1,95 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'satkarma charitable trust.jpg' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(to right,#62CFF4, #2C67F2);
+            /* background: url('background-image.jpg') no-repeat center center fixed; */
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 60px; /* Increased height */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 320px; /* Increased width */
+            text-align: center;
+        }
+
+        .login-container img {
+            width: 150px; /* Increased size */
+            height: 150px; /* Increased size */
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #2980b9;
+        }
+
+        .login-container a {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            color: #3498db;
+            text-decoration: none;
+        }
+    </style>
+    <title>Login Form</title>
+</head>
+<body>
+<div class="login-container">
+    <img src="{% static 'satkarma charitable trust.jpg' %}" alt="Logo" height="500" width="450">
+    <br>
+    <form action="{% url 'loginuser' %}" method="post">
+        {% csrf_token %}
+        <!-- {% if msg %}
+        <h4 style="color: black">{{ msg }}</h4>
+        {% endif %} -->
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Login</button>
+        <!-- <a href="login.html">Already have an account?</a> -->
+    </form>
+</div>
+
+<script>
+    var msg = "{{ msg }}";
+    if (msg) {
+        alert(msg);
+    }
+</script>
+
+</body>
+</html>
