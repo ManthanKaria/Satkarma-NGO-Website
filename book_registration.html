@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="{% static 'forward.jpg' %}" />
+    <link rel="icon" href="forward.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -92,8 +92,8 @@
 </head>
 <body>
 <div class="login-container" >
-    <img src="{% static 'satkarma charitable trust.jpg' %}" alt="Logo">
-    <form action="{% url 'book_registration' %}" method="post" enctype="multipart/form-data">
+    <img src="satkarma charitable trust.jpg" alt="Logo">
+    <form action="book_registration" method="post" enctype="multipart/form-data">
         {% csrf_token %} 
         {% if msg %}
         <!-- <h4 style="color: black">{{ msg }}</h4> -->

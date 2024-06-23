@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="{% static 'satkarma charitable trust.jpg' %}" />
+    <link rel="icon" href="satkarma charitable trust.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -70,9 +70,9 @@
 </head>
 <body>
 <div class="login-container">
-    <img src="{% static 'satkarma charitable trust.jpg' %}" alt="Logo" height="500" width="450">
+    <img src="satkarma charitable trust.jpg" alt="Logo" height="500" width="450">
     <br>
-    <form action="{% url 'loginuser' %}" method="post">
+    <form action="loginuser" method="post">
         {% csrf_token %}
         <!-- {% if msg %}
         <h4 style="color: black">{{ msg }}</h4>
