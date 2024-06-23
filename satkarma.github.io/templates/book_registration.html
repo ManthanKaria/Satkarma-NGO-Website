@@ -1,0 +1,143 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'forward.jpg' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(to right,#62CFF4, #2C67F2); 
+            /* background: url('') no-repeat center center fixed; */
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 20px;
+            
+            
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 50px; /* Increased height */
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Increased width */
+            text-align: left;
+            padding-top: 50px;
+            margin-bottom: auto;
+            margin-top: auto;
+
+            
+        }
+
+        .login-container img {
+            width: 120px; /* Increased size */
+            height: 120px; /* Increased size */
+            border-radius: 50%;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 10px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .login-container input,
+        .login-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #2980b9;
+        }
+
+        .login-container a {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        #sex {
+            font-size: 12px;
+            padding: 4px;
+            padding-bottom: 2px;
+            opacity: 75%;
+        }
+
+    </style>
+    <title>Login Form</title>
+</head>
+<body>
+<div class="login-container" >
+    <img src="{% static 'satkarma charitable trust.jpg' %}" alt="Logo">
+    <form action="{% url 'book_registration' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+        {% if msg %}
+        <!-- <h4 style="color: black">{{ msg }}</h4> -->
+        {% endif %}
+        <input type="text" placeholder="Username" name="username" id="uname" required>
+        <input type="text" placeholder="Full Name" name="fname" id="name" required>
+        <input type="email" placeholder="E-Mail" name="email" id="email" required>
+        <input type="tel" placeholder="Phone" name="phone" id="phone" required>
+        <input type="Password" placeholder="Password" name="pass1" id="pass1" required>
+        <input type="Password" placeholder="Confirm Password" name="pass2" id="pass2" required> 
+        
+        <label for="gender" id="sex">Gender</label>
+        <select id="gender" name="gender">
+            <option value="" disabled selected hidden>Select Gender</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+
+        <input type="text" placeholder="School" name="school" id="school">
+        <input type="date" name="dob" placeholder="Date of Birth" required>
+        <label for="docType" id="sex">Result</label>
+        <input type="file" id="result" name="result" accept=".pdf, .jpg, .png">
+        
+        <label for="upload" id="sex">Upload</label>
+        <select id="upload" name="upload">
+            <option value="" disabled selected hidden>Select Document</option>
+            <option value="A">Aadhar Card</option>
+            <option value="P">Passport</option>
+            <option value="D">Driving License</option>
+        </select>
+
+        <input type="file" id="document" name="document" accept=".pdf, .jpg, .png">
+        <button type="submit">Submit</button>
+        <a href="login">Already have an account?</a>
+    </form>
+</div>
+
+<script>
+    // JavaScript code to display alert message
+    var msg = "{{ msg }}";
+    if (msg) {
+        alert(msg);
+    }
+</script>
+
+</body>
+</html>
